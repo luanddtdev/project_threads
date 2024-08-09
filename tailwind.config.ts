@@ -8,13 +8,6 @@ const config = {
 	],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     fontSize: {
       "heading1-bold": [
         "36px",
@@ -28,13 +21,6 @@ const config = {
         {
           lineHeight: "140%",
           fontWeight: "600",
-        },
-      ],
-      "heading2-bold": [
-        "30px",
-        {
-          lineHeight: "140%",
-          fontWeight: "700",
         },
       ],
       "heading2-semibold": [
@@ -172,17 +158,18 @@ const config = {
       ],
     },
     extend: {
+      fontFamily: {
+        inter: ["var(--font-inter)", "sans-serif"]
+      },
       colors: {
         "primary-500": "#877EFF",
         "secondary-500": "#FFB620",
         blue: "#0095F6",
         "logout-btn": "#FF5A5A",
         "navbar-menu": "rgba(16, 16, 18, 0.6)",
-        "dark-1": "#000000",
         "dark-2": "#121417",
         "dark-3": "#101012",
         "dark-4": "#1F1F22",
-        "light-1": "#FFFFFF",
         "light-2": "#EFEFEF",
         "light-3": "#7878A3",
         "light-4": "#5C5C7B",

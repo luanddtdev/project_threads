@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 @layer components {
+  .h1-30-bold {
+    @apply font-bold text-[30px] leading-[140%];
+  }
+}
+
+@layer components {
   /* main */
   .main-container {
     @apply flex min-h-screen flex-1 flex-col items-center bg-dark-1 px-6 pb-10 pt-28 max-md:pb-32 sm:px-10;
-  }
-
-  /* Head Text */
-  .head-text {
-    @apply text-heading2-bold text-light-1;
   }
 
   /* Activity */
@@ -148,7 +149,7 @@
 }
 
 .account-form_input {
-  @apply border border-dark-4 bg-dark-3 text-light-1 !important;
+  @apply border border-dark-4 bg-dark-3 text-white !important;
 }
 
 /* Comment Form */
@@ -157,5 +158,5 @@
 }
 
 .comment-form_btn {
-  @apply rounded-3xl bg-primary-500 px-8 py-2 !text-small-regular text-light-1 max-xs:w-full !important;
+  @apply rounded-3xl bg-primary-500 px-8 py-2 !text-small-regular text-white max-xs:w-full !important;
 }
