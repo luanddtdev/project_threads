@@ -1,11 +1,9 @@
-import { SignedIn, UserButton } from "@clerk/nextjs"
-
 export default function Home() {
   return (
     <>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
+      <h1 className="text-30-bold text-white">
+        Home
+      </h1>
     </>
   )
 }
