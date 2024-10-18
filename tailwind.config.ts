@@ -7,6 +7,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        "30-bold": [
+          "30px",
+          {
+            fontWeight: 700,
+            lineHeight: "140%"
+          }
+        ]
+      },
       colors: {}
     }
   },
