@@ -26,7 +26,10 @@ const config: Config = {
       },
       colors: {
         color: {
-          1: "#121417"
+          1: "#121417",
+          2: "#1F1F22",
+          3: "#877EFF",
+          4: "#EFEFEF"
         }
       },
       screens: {
