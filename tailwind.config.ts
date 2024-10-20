@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import plugin from "tailwindcss/plugin"
 
 const config: Config = {
   content: [
@@ -14,11 +15,35 @@ const config: Config = {
             fontWeight: 700,
             lineHeight: "140%"
           }
+        ],
+        "24-bold": [
+          "24px",
+          {
+            fontWeight: 700,
+            lineHeight: "140%"
+          }
         ]
       },
-      colors: {}
+      colors: {
+        color: {
+          1: "#121417"
+        }
+      },
+      screens: {
+        xs: "400px"
+      }
     }
   },
-  plugins: []
+  plugins: [
+    plugin(function ({ addBase, addComponents, addUtilities }) {
+      addBase({})
+      addComponents({
+        ".flex-between": {
+          "@apply flex justify-between items-center": {}
+        }
+      })
+      addUtilities({})
+    })
+  ]
 }
 export default config
