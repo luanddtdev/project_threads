@@ -23,6 +23,13 @@ const config: Config = {
             lineHeight: "140%"
           }
         ],
+        "20-medium": [
+          "20px",
+          {
+            fontWeight: 500,
+            lineHeight: "140%"
+          }
+        ],
         "12-medium": [
           "12px",
           {
