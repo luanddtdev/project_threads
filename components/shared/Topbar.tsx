@@ -1,6 +1,7 @@
 import { OrganizationSwitcher, SignedIn, SignOutButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
+import { dark } from "@clerk/themes"
 
 const Topbar = () => {
   return (
@@ -23,6 +24,15 @@ const Topbar = () => {
       </Link>
 
       <div className="flex items-center gap-1">
+        <OrganizationSwitcher 
+          appearance={{
+            baseTheme: dark,
+            elements: {
+              organizationSwitcherTrigger: "px-4 py-2"
+            }
+          }}
+        />
+
         <SignedIn>
           <SignOutButton>
             <Image 
@@ -34,14 +44,6 @@ const Topbar = () => {
             />
           </SignOutButton>
         </SignedIn>
-
-        <OrganizationSwitcher 
-          appearance={{
-            elements: {
-              organizationSwitcherTrigger: "px-4 py-2"
-            }
-          }}
-        />
       </div>
     </div>
   )
