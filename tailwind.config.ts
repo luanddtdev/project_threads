@@ -22,6 +22,13 @@ const config: Config = {
             fontWeight: 700,
             lineHeight: "140%"
           }
+        ],
+        "12-medium": [
+          "12px",
+          {
+            fontWeight: 500,
+            lineHeight: "16px"
+          }
         ]
       },
       colors: {
@@ -29,7 +36,8 @@ const config: Config = {
           1: "#121417",
           2: "#1F1F22",
           3: "#877EFF",
-          4: "#EFEFEF"
+          4: "#EFEFEF",
+          5: "rgba(16, 16, 18, 0.6)"
         }
       },
       screens: {
