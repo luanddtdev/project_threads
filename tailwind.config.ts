@@ -30,6 +30,13 @@ const config: Config = {
             lineHeight: "140%"
           }
         ],
+        "16-normal": [
+          "16px",
+          {
+            fontWeight: 400,
+            lineHeight: "140%"
+          }
+        ],
         "12-medium": [
           "12px",
           {
