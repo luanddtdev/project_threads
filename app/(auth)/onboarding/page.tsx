@@ -1,6 +1,20 @@
 import AccountProfile from "@/components/forms/AccountProfile"
+import { currentUser } from "@clerk/nextjs/server"
 
-const Onboarding = () => {
+const Onboarding = async () => {
+    const user = await currentUser()
+
+    const userInfo = {}
+
+    const userData = {
+        id: user?.id,
+        objectId: userInfo?._id,
+        username: userInfo?.username || user?.username,
+        name: userInfo?.name || user?.firstName || "",
+        bio: userInfo?.bio || "",
+        image: userInfo?.image || user?.imageUrl
+    }
+
     return (
         <div className="max-w-3xl mx-auto px-10 py-20">
             <h1 className="text-30-bold text-white">
@@ -12,7 +26,10 @@ const Onboarding = () => {
             </p>
 
             <div className="mt-9 p-10 bg-color-1">
-                <AccountProfile />
+                <AccountProfile 
+                    user={userData}
+                    btnTitle="Continue"
+                />
             </div>
         </div>
     )
