@@ -10,9 +10,11 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Image from "next/image"
-import { ChangeEvent } from "react"
+import { ChangeEvent, useState } from "react"
 
 const AccountProfile = ({ user, btnTitle }: AccountProfileProps) => {
+    const [files, setFiles] = useState<File[]>([])
+
     const form = useForm<z.infer<typeof UserValidation>>({
         resolver: zodResolver(UserValidation),
         defaultValues: {
@@ -23,8 +25,26 @@ const AccountProfile = ({ user, btnTitle }: AccountProfileProps) => {
         }
     })
 
-    const handleImage = (e: ChangeEvent, fieldChange: (value: string) => void) => {
+    const handleImage = (e: ChangeEvent<HTMLInputElement>, fieldChange: (value: string) => void) => {
         e.preventDefault()
+
+        const fileReader = new FileReader()
+
+        if(e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0]
+
+            setFiles(Array.from(e.target.files))
+
+            if(!file.type.includes("image")) return
+
+            fileReader.onload = async (event) => {
+                const imageDataUrl = event.target?.result?.toString() || ""
+
+                fieldChange(imageDataUrl)
+            }
+
+            fileReader.readAsDataURL(file)
+        }
     }
 
     function onSubmit(values: z.infer<typeof UserValidation>) {
@@ -42,7 +62,7 @@ const AccountProfile = ({ user, btnTitle }: AccountProfileProps) => {
                     name="avatar"
                     render={({ field }) => (
                         <FormItem className="flex items-center gap-4">
-                            <FormLabel className="size-24 bg-color-2 rounded-full flex-center">
+                            <FormLabel className="size-24 bg-color-2 rounded-full overflow-hidden flex-center">
                                 {field.value ? (
                                     <Image 
                                         src={field.value}
