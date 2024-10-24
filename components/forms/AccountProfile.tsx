@@ -16,10 +16,10 @@ const AccountProfile = ({ user, btnTitle }: AccountProfileProps) => {
     const form = useForm<z.infer<typeof UserValidation>>({
         resolver: zodResolver(UserValidation),
         defaultValues: {
-            avatar: "",
-            name: "",
-            username: "",
-            bio: ""
+            avatar: user?.image || "",
+            name: user?.name || "",
+            username: user?.username || "",
+            bio: user?.bio || ""
         }
     })
 
@@ -46,7 +46,7 @@ const AccountProfile = ({ user, btnTitle }: AccountProfileProps) => {
                                 {field.value ? (
                                     <Image 
                                         src={field.value}
-                                        alt={user.name}
+                                        alt={user?.name}
                                         width={96}
                                         height={96}
                                         priority
